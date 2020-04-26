@@ -47,4 +47,28 @@ void showUIinGame(sf::RenderWindow *w)
     w->draw(square_r);
     w->draw(square_b);
     w->draw(square_y);
+    
+    sf::RectangleShape square_r_1 = setStandardItem(sf::Vector2f(40, 400), sf::Color::Red);
+    sf::RectangleShape square_b_1 = setStandardItem(sf::Vector2f(80, 400), sf::Color::Blue);
+    sf::RectangleShape square_y_1 = setStandardItem(sf::Vector2f(140, 400), sf::Color::White);
+
+    w->draw(square_r_1);
+    w->draw(square_b_1);
+    w->draw(square_y_1);
+    
+    sf::Text text_4 ("1.(     or     ) ->     (diagonally)  = \ncancal temporary status to jump\nwhen there is not a space to jump", font);
+    text_4.setCharacterSize(20);
+    text_4.setFillColor(sf::Color::White);
+    text_4.setPosition(20, 395); //445
+    w->draw(text_4);
+    
+    sf::Text text_5 ("2.For the first time, press SPACE to lock\nthe position and press RETUREN to confirm\n For the seocnd time, PRESS SPACE to\nrelease and press RETURN to confirm\nthen finish the SFIFT of item", font);
+    text_5.setCharacterSize(20);
+    text_5.setFillColor(sf::Color::White);
+    text_5.setPosition(20, 500); //445
+    
+    w->draw(text_5);
+
+    
+    
 }

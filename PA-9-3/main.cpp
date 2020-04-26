@@ -1,6 +1,7 @@
 #include"GameEngine.h"
 #include"map.h"
 #include"player.h"
+#include"user.h"
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include<string>
@@ -8,7 +9,7 @@
 int main()
 {
     
-    sf::RenderWindow window(sf::VideoMode(400, 400), "Checker C++");
+    sf::RenderWindow window(sf::VideoMode(400, 700), "Checker C++");
     window.setFramerateLimit(15);
     
     sf::Font font;
@@ -24,10 +25,26 @@ int main()
     text_1.setFillColor(sf::Color::Yellow);
     text_1.setPosition(200, 20);
     
+    sf::Text text_2 ("Player - 1 win!", font);
+    text_2.setCharacterSize(30);
+    text_2.setFillColor(sf::Color::Red);
+    text_2.setPosition(200, 20);
+    
+    sf::Text text_3 ("Player - 2 win!", font);
+    text_3.setCharacterSize(30);
+    text_3.setFillColor(sf::Color::Blue);
+    text_3.setPosition(200, 20);
+    
+//    sf::Text text_4 ("choose the cross white square \nif there is no position to jump", font);
+//    text_4.setCharacterSize(20);
+//    text_4.setFillColor(sf::Color::White);
+//    text_4.setPosition(60,390);
 
     Map gamemap;
-    player checker_1(sf::Color::Red, gamemap, 1);
-    player checker_2(sf::Color::Blue, gamemap, 2);
+    user checker_1(sf::Color::Red, gamemap, 1);
+    user checker_2(sf::Color::Blue, gamemap, 2);
+    
+    //checker_1.setnum();
     
     sf::Vector2f pos_1;
     sf::Vector2f pos_2;
@@ -216,7 +233,14 @@ int main()
             
             if(time == 3)
             {
-                
+//                if(player_1 == 0 && player_2 == 0)
+//                {
+//
+//                }
+                if(player_1 == 1 && player_2 == 0)
+                {
+                    a = 0;
+                }
                 if(player_1 == 2 && player_2 == 1)
                 {
                     player_1 = 1, player_2 = 0;
@@ -224,34 +248,38 @@ int main()
                 if(player_1 == player_2 == 1)
                 {
                     player_1 = 0, player_2 = 0;
+                    b = 0;
                 }
-                
-//                else
-//                    if(player_1 == 1 && player_2 == 0)
-//                        player_1 = 1, player_2 = 1;
-//                    else if (player_2 == 1)
-//                        player_2 = 0;
                 time = 0;
             }
+            
         }
         else
         {
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-                gamemap.moveObj(1);
+                gamemap.moveobj(1);
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-                gamemap.moveObj(2);
+                gamemap.moveobj(2);
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-                gamemap.moveObj(3);
+                gamemap.moveobj(3);
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-                gamemap.moveObj(4);
+                gamemap.moveobj(4);
             window.draw(gamemap.getLocalposition());
             window.draw(text);
             window.draw(text_1);
+            
         }
         window.draw(gamemap.getLocalposition());
+        //checker_1.update(&window);
+        //checker_2.update(&window);
+        //window.draw(text_4);
         showUIinGame(&window);
-                //window.draw(playe);
-        //while(player.)
+         if(checker_1.checkwin() == 1) // checker_2 win
+             window.draw(text_3);
+        if(checker_2.checkwin() == 1) // checker_2 win
+            window.draw(text_2);
+             
+             
         window.display();
     }
     return 0;

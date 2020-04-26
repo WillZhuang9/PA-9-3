@@ -14,7 +14,7 @@
 using namespace std;
 class Map
 {
-private:
+protected:
     struct border
     {
         sf::Vector2f location;
@@ -29,7 +29,7 @@ private:
     struct mouse obj;
 public:
     Map();
-    void moveObj(int);
+    void moveobj(int);
     sf::RectangleShape getLocalposition()
     {
         return obj.item;

@@ -19,7 +19,7 @@ Map::Map()
     obj.item = setStandardItem(obj.location,  sf::Color::Yellow);
 }
 
-void Map::moveObj(int direction)
+void Map::moveobj(int direction)
 {
     sf::Vector2f coordinator = obj.item.getPosition();
    if(direction == 1)

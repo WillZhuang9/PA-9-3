@@ -11,7 +11,7 @@ using namespace std;
 
 class player
 {
-private:
+protected:
     struct chess
     {
         sf::Color color;
@@ -33,6 +33,10 @@ public:
     int returnnum()
     {
         return num;
+    }
+    void setnum()
+    {
+        num = 0;
     }
 };
 
