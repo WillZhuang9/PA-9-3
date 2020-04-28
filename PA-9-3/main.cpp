@@ -2,12 +2,29 @@
 #include"map.h"
 #include"player.h"
 #include"user.h"
+#include"Menu.h"
+#include "NetworkConnect.h"
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+#include <SFML/Network.hpp>
 #include<string>
 // Here is a small helper for you! Have a look.
 int main()
 {
+    while(EnterScreen() != 1)
+    {
+      if(EnterScreen() == 1)
+          break;
+    }
+    // new section //
+    
+    MainMenu menu1;
+    int exitStatus = menu1.main();
+    if(exitStatus == 1)
+    {
+        exit(0);
+    }
+    
     
     sf::RenderWindow window(sf::VideoMode(400, 700), "Checker C++");
     window.setFramerateLimit(15);
