@@ -16,13 +16,16 @@ int user:: checkwin()
       return 1;
     return 0;
 }
-int user::checktie(int a)
+void user::checktie(int a)
 {
     if(a == 1)
         move = 0;
     else
         move += 1;
-    if (move == 100)
+}
+int user::get_tie() 
+{
+    if(move == 5) // move more than 100 times but didnt't eat anything, then this side lose 
         return 1;
     return 0;
 }

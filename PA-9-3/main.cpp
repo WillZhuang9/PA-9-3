@@ -3,7 +3,6 @@
 #include"player.h"
 #include"user.h"
 #include"Menu.h"
-#include "NetworkConnect.h"
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/Network.hpp>
@@ -11,11 +10,6 @@
 // Here is a small helper for you! Have a look.
 int main()
 {
-    while(EnterScreen() != 1)
-    {
-      if(EnterScreen() == 1)
-          break;
-    }
     // new section //
     
     MainMenu menu1;
@@ -52,16 +46,10 @@ int main()
     text_3.setFillColor(sf::Color::Blue);
     text_3.setPosition(200, 20);
     
-//    sf::Text text_4 ("choose the cross white square \nif there is no position to jump", font);
-//    text_4.setCharacterSize(20);
-//    text_4.setFillColor(sf::Color::White);
-//    text_4.setPosition(60,390);
-
     Map gamemap;
     user checker_1(sf::Color::Red, gamemap, 1);
     user checker_2(sf::Color::Blue, gamemap, 2);
-    
-    //checker_1.setnum();
+
     
     sf::Vector2f pos_1;
     sf::Vector2f pos_2;
@@ -133,6 +121,7 @@ int main()
                 pos_2 = gamemap.getLocalposition().getPosition();
                 if(player_1 == 0) // red
                 {
+                    checker_1.checktie(0);
                     int x_c =(pos_1.x + pos_2.x) / 2;
                     int y_c =(pos_1.y + pos_2.y) / 2;
                     for (int n = 0; n < 3; n++)
@@ -161,6 +150,7 @@ int main()
                             else if (a == 1)
                                 {
                                     checker_2.moveToTrash(temp.getPosition());
+                                    checker_1.checktie(1);
                                     time = 2, player_1 = 0;
                                     a = 2;
                                 }
@@ -172,6 +162,7 @@ int main()
                             if(a == 1)
                             {
                                 checker_2.moveToTrash(temp.getPosition());
+                                checker_1.checktie(1);
                                 time = 2, player_1 = 0;
                                 a = 2;
                             }
@@ -191,6 +182,7 @@ int main()
                 }
                 else if (player_1 == 1) // blue
                 {
+                    checker_2.checktie(0);
                     int x_c =(pos_1.x + pos_2.x) / 2;
                     int y_c =(pos_1.y + pos_2.y) / 2;
                     for (int n = 0; n < 3; n++)
@@ -217,6 +209,7 @@ int main()
                             else if(b == 1)
                             {
                                 checker_1.moveToTrash(temp.getPosition());
+                                checker_2.checktie(1);
                                 time = 2, player_2 = 0;
                                 b = 2;
                             }
@@ -228,6 +221,7 @@ int main()
                             if(b == 1)
                             {
                                 checker_1.moveToTrash(temp.getPosition());
+                                checker_2.checktie(1);
                                 time = 2, player_2 = 0;
                                 b = 2;
                             }
@@ -250,10 +244,6 @@ int main()
             
             if(time == 3)
             {
-//                if(player_1 == 0 && player_2 == 0)
-//                {
-//
-//                }
                 if(player_1 == 1 && player_2 == 0)
                 {
                     a = 0;
@@ -286,17 +276,20 @@ int main()
             window.draw(text_1);
             
         }
+        
         window.draw(gamemap.getLocalposition());
-        //checker_1.update(&window);
-        //checker_2.update(&window);
-        //window.draw(text_4);
+        
         showUIinGame(&window);
-         if(checker_1.checkwin() == 1) // checker_2 win
-             window.draw(text_3);
-        if(checker_2.checkwin() == 1) // checker_2 win
+        
+        if(checker_1.checkwin() == 1) // checker_2 win
+            window.draw(text_3);
+        if(checker_1.get_tie() == 1)  // checker_2 win
+            window.draw(text_3);
+        if(checker_2.checkwin() == 1) // checker_1 win
             window.draw(text_2);
-             
-             
+        if(checker_2.get_tie() == 1)  // checker_1 win
+            window.draw(text_2);
+ 
         window.display();
     }
     return 0;

@@ -17,7 +17,6 @@
 		BE4E0D592455363500C7B921 /* player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE4E0D572455363500C7B921 /* player.cpp */; };
 		BE4E0D5C245559A000C7B921 /* user.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE4E0D5A245559A000C7B921 /* user.cpp */; };
 		BE4E0D5F2457651000C7B921 /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE4E0D5D2457651000C7B921 /* Menu.cpp */; };
-		BE4E0D6224576E0900C7B921 /* NetworkConnect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE4E0D6024576E0900C7B921 /* NetworkConnect.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +37,6 @@
 		BE4E0D5B245559A000C7B921 /* user.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = user.h; sourceTree = "<group>"; };
 		BE4E0D5D2457651000C7B921 /* Menu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Menu.cpp; sourceTree = "<group>"; };
 		BE4E0D5E2457651000C7B921 /* Menu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
-		BE4E0D6024576E0900C7B921 /* NetworkConnect.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NetworkConnect.cpp; sourceTree = "<group>"; };
-		BE4E0D6124576E0900C7B921 /* NetworkConnect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkConnect.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,8 +69,6 @@
 		BE4E0D3B245535A600C7B921 /* PA-9-3 */ = {
 			isa = PBXGroup;
 			children = (
-				BE4E0D6124576E0900C7B921 /* NetworkConnect.h */,
-				BE4E0D6024576E0900C7B921 /* NetworkConnect.cpp */,
 				BE4E0D5E2457651000C7B921 /* Menu.h */,
 				BE4E0D5D2457651000C7B921 /* Menu.cpp */,
 				BE4E0D52245535EF00C7B921 /* GameEngine.h */,
@@ -207,7 +202,6 @@
 				BE4E0D562455361C00C7B921 /* map.cpp in Sources */,
 				BE4E0D42245535A600C7B921 /* main.cpp in Sources */,
 				BE4E0D5C245559A000C7B921 /* user.cpp in Sources */,
-				BE4E0D6224576E0900C7B921 /* NetworkConnect.cpp in Sources */,
 				BE4E0D53245535EF00C7B921 /* GameEngine.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

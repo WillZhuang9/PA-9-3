@@ -23,7 +23,8 @@ public:
         move =0;
     }
     int checkwin();
-    int checktie(int);
+    void checktie(int);
+    int get_tie();
     
 };
 #endif /* user_hpp */

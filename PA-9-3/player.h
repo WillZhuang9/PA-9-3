@@ -26,7 +26,11 @@ public:
     {
         return checker[n][m].item;
     }
-    //sf::Vector2f getLocalposition(Map gamemap);
+    
+    virtual int checkwin() = 0;     // polymorphic - pure virtual function
+    virtual void checktie(int) = 0; // polymorphic - pure virtual function
+    virtual int get_tie() = 0;      // polymorphic - pure virtual function
+    
     int moveObj(sf::Vector2f, sf::Vector2f, int, sf::RectangleShape);
     bool Getposition(sf::Vector2f);
     void moveToTrash(sf::Vector2f);
@@ -38,6 +42,7 @@ public:
     {
         num = 0;
     }
+    
 };
 
 #endif /* player_hpp */
